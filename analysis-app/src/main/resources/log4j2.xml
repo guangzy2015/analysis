@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="pathName">${sys:LC_LOG_DIR}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT" follow="true">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{36} - %m%n</pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="analysisAppender" fileName="${pathName}/analysis.log"
+                     filePattern="${pathName}/$${date:yyyy-MM}/analysis_%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5p %c{36} - %m%n</pattern>
+            </PatternLayout>
+            <Policies>
+              <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+              <SizeBasedTriggeringPolicy size="200m"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="analysisAppender"/>
+        </Root>
+        <Logger name="com.feng.analysis" level="INFO" additivity="false">
+            <AppenderRef ref="analysisAppender"/>
+        </Logger>
+    </Loggers>
+</Configuration>

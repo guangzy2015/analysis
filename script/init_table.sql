@@ -1,0 +1,22 @@
+CREATE TABLE  trans.fund_detail (
+  id int(10) primary key NOT NULL AUTO_INCREMENT,
+  currency varchar(45) DEFAULT NULL COMMENT '币种',
+  fund_name varchar(45) DEFAULT NULL COMMENT '证券名称',
+  trans_date varchar(45) NOT NULL COMMENT '成交日期',
+  trans_price decimal(10,2) NOT NULL COMMENT '成交价格',
+  trans_number decimal(10,2) NOT NULL COMMENT '成交数量',
+  trans_amount decimal(10,2) NOT NULL COMMENT '发生金额',
+  balance decimal(10,2) NOT NULL COMMENT '资金余额',
+  contract_id varchar(45) DEFAULT NULL COMMENT '合同编号',
+  trans_desc varchar(45) NOT NULL COMMENT '业务名称',
+  trans_fee decimal(10,2) NOT NULL COMMENT '手续费',
+  stamp_tax decimal(10,2) NOT NULL COMMENT '印花税',
+  transfer_fee decimal(10,2) NOT NULL COMMENT '过户费',
+  settle_fee decimal(10,2) NOT NULL COMMENT '结算费',
+  fund_code varchar(45) NOT NULL COMMENT '证券代码',
+  member_code varchar(45) NOT NULL COMMENT '股东代码',
+  create_datetime datetime default now(),
+  update_datetime datetime default now() on update now(),
+  extension      varchar(512) default '{}',
+  UNIQUE KEY (contract_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='证券资金明细';

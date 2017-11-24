@@ -1,0 +1,70 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+management:
+  port: 8081
+  context-path: "/actuator"
+logback:
+  root:
+    level: info
+    file: ON
+log:
+  dir: ./log/
+  file:
+    name: honeywine
+logging:
+   level:
+      com:
+        dangdang:
+            ddframe: INFO
+spring:
+  application:
+    name: honeywine
+    batch:
+      initializer:
+         enabled: false
+      job:
+         enabled: false
+
+
+# 每个client的特殊配置
+info:
+  build:
+    artifactId: ${build.artifact}
+    version: ${build.version}
+    time: ${build.time}
+hystrix:
+      command:
+        default:
+          execution:
+            isolation:
+              thread:
+                timeoutInMilliseconds: 30000
+
+analysis:
+  ribbon:
+      ConnectTimeout: 5000
+      ReadTimeout: 15000
+      hystrix:
+        command:
+         execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 70000
+  db:
+    test:
+      driverClassName: com.mysql.jdbc.Driver
+      urls: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf-8&useSSL=false
+      userName: root
+      password: 123456
+      tableCount: 1
+      schemaPrefix: test
+      maxActive: 20
+      minIdle: 3
+      initialSize: 5
+      maxWait: 20000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnReturn: false
+      timeBetweenEvictionRunsMillis: 120000
+      minEvictableIdleTimeMillis: 1800000

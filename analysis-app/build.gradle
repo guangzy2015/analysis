@@ -1,0 +1,15 @@
+group 'com.feng.analysis'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    compile project(':analysis-business')
+    compile("org.springframework.boot:spring-boot-starter-web") {//spring web容器支持
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'//排除默认的web容器
+    }
+    compile('org.springframework.boot:spring-boot-starter-tomcat') {
+    }//内嵌的web容器  jetty  or tomcat
+
+    compile 'io.springfox:springfox-swagger2:2.6.1',
+            'io.springfox:springfox-swagger-ui:2.6.1'
+    compile 'io.springfox:springfox-petstore:2.5.0'
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feng.analysis.core.trans.mapper.FundDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.feng.analysis.core.trans.entity.FundDetailEntity">
+        <result column="id" jdbcType="CHAR" property="id"/>
+        <result column="create_datetime" jdbcType="TIMESTAMP" property="createDatetime"/>
+        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime"/>
+        <result column="extension" jdbcType="VARCHAR" property="extension"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, create_datetime, update_datetime, extension
+    </sql>
+
+</mapper>

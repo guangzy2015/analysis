@@ -1,7 +1,7 @@
 package com.feng.analysis.core.trans;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.feng.analysis.app.conf.SpringBootVFS;
+import com.feng.analysis.conf.SpringBootVFS;
 import com.feng.analysis.core.db.DBProperties;
 import com.google.common.base.Preconditions;
 import org.apache.ibatis.io.VFS;
@@ -25,7 +25,7 @@ import static com.feng.analysis.core.trans.TransDBConfig.SESSION_FACTORY_NAME;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = "com.feng.analysis.core.batch.mapper", sqlSessionFactoryRef = SESSION_FACTORY_NAME)
+@MapperScan(basePackages = "com.feng.analysis.core.trans.mapper", sqlSessionFactoryRef = SESSION_FACTORY_NAME)
 public class TransDBConfig {
     private static final String DB_PROPERTY_CONFIG_NAME = "transDBProperties";
 

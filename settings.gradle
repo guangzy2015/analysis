@@ -1,4 +1,4 @@
-rootProject.name = 'fund_detail_analysis'
+rootProject.name = 'analysis'
 include 'analysis-conf'
 include 'analysis-core'
 include 'analysis-business'

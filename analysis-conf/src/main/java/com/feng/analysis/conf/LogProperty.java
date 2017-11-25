@@ -1,4 +1,4 @@
-package com.feng.analysis.app.conf;
+package com.feng.analysis.conf;
 
 import java.util.UUID;
 

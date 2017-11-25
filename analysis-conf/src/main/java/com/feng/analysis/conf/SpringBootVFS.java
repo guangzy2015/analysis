@@ -1,4 +1,4 @@
-package com.feng.analysis.app.conf;
+package com.feng.analysis.conf;
 
 import org.apache.ibatis.io.VFS;
 import org.springframework.core.io.Resource;

@@ -1,5 +1,6 @@
 package com.feng.analysis.app.conf;
 
+import com.feng.analysis.conf.LogProperty;
 import io.swagger.annotations.ApiOperation;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

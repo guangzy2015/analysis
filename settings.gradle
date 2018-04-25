@@ -3,5 +3,5 @@ include 'analysis-conf'
 include 'analysis-core'
 include 'analysis-business'
 include 'analysis-app'
-
+include 'analysis-common'
 

@@ -21,9 +21,9 @@ public class ControllerInvokeInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(ControllerInvokeInterceptor.class);
 
     /**
-     * 定义拦截规则：拦截com.dianrong.starrysept.app.controller包下面的所有类中，有@RequestMapping注解的方法。
+     * 定义拦截规则：拦截com.feng.analysis.app.controller包下面的所有类中，有@RequestMapping注解的方法。
      */
-    @Pointcut("execution(* com.dianrong.starrysept.app.controller..*(..)) and @annotation(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut("execution(* com.feng.analysis.app.controller..*(..)) and @annotation(org.springframework.web.bind.annotation.RequestMapping)")
     public void controllerMethodPointcut() {
     }
 
@@ -33,7 +33,7 @@ public class ControllerInvokeInterceptor {
      * @param pjp
      * @return JsonResult（被拦截方法的执行结果，或需要登录的错误提示。）
      */
-    @Around("controllerMethodPointcut()") //指定拦截器规则；也可以直接把“execution(* com.dianrong.........)”写进这里
+    @Around("controllerMethodPointcut()") //指定拦截器规则；也可以直接把“execution(* com.........)”写进这里
     public Object interceptor(ProceedingJoinPoint pjp) throws Throwable {
         String opName;//操作名称
         MethodSignature signature = (MethodSignature) pjp.getSignature();

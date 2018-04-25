@@ -25,7 +25,7 @@
         <Root level="info">
             <AppenderRef ref="analysisAppender"/>
         </Root>
-        <Logger name="com.dianrong.analysis" level="INFO" additivity="false">
+        <Logger name="com.feng.analysis" level="INFO" additivity="false">
             <AppenderRef ref="analysisAppender"/>
         </Logger>
     </Loggers>

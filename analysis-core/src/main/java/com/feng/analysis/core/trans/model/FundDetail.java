@@ -1,19 +1,14 @@
-package com.feng.analysis.core.trans.entity;
+package com.feng.analysis.core.trans.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.Date;
 
 @Setter
 @Getter
-@ToString
-@EqualsAndHashCode
-public class FundDetailEntity {
+public class FundDetail {
     private Integer id;
 
     /**
@@ -90,10 +85,6 @@ public class FundDetailEntity {
      * 股东代码
      */
     private String memberCode;
-
-    private Instant createDatetime;
-
-    private Instant updateDatetime;
 
     private String extension;
 }

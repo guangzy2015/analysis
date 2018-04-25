@@ -3,14 +3,53 @@
 <mapper namespace="com.feng.analysis.core.trans.mapper.FundDetailMapper">
 
     <resultMap id="BaseResultMap" type="com.feng.analysis.core.trans.entity.FundDetailEntity">
-        <result column="id" jdbcType="CHAR" property="id"/>
-        <result column="create_datetime" jdbcType="TIMESTAMP" property="createDatetime"/>
-        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime"/>
-        <result column="extension" jdbcType="VARCHAR" property="extension"/>
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="currency" jdbcType="VARCHAR" property="currency" />
+        <result column="fund_name" jdbcType="VARCHAR" property="fundName" />
+        <result column="trans_date" jdbcType="VARCHAR" property="transDate" />
+        <result column="trans_price" jdbcType="DECIMAL" property="transPrice" />
+        <result column="trans_number" jdbcType="DECIMAL" property="transNumber" />
+        <result column="trans_amount" jdbcType="DECIMAL" property="transAmount" />
+        <result column="balance" jdbcType="DECIMAL" property="balance" />
+        <result column="contract_id" jdbcType="VARCHAR" property="contractId" />
+        <result column="trans_desc" jdbcType="VARCHAR" property="transDesc" />
+        <result column="trans_fee" jdbcType="DECIMAL" property="transFee" />
+        <result column="stamp_tax" jdbcType="DECIMAL" property="stampTax" />
+        <result column="transfer_fee" jdbcType="DECIMAL" property="transferFee" />
+        <result column="settle_fee" jdbcType="DECIMAL" property="settleFee" />
+        <result column="fund_code" jdbcType="VARCHAR" property="fundCode" />
+        <result column="member_code" jdbcType="VARCHAR" property="memberCode" />
+        <result column="create_datetime" jdbcType="TIMESTAMP" property="createDatetime" />
+        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime" />
+        <result column="extension" jdbcType="VARCHAR" property="extension" />
     </resultMap>
-
     <sql id="Base_Column_List">
-        id, create_datetime, update_datetime, extension
+        id, currency, fund_name, trans_date, trans_price, trans_number, trans_amount, balance,
+        contract_id, trans_desc, trans_fee, stamp_tax, transfer_fee, settle_fee, fund_code,
+        member_code, create_datetime, update_datetime, extension
     </sql>
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into fund_detail (
+        currency, fund_name,
+        trans_date, trans_price, trans_number,
+        trans_amount, balance, contract_id,
+        trans_desc, trans_fee, stamp_tax,
+        transfer_fee, settle_fee, fund_code,
+        member_code, extension
+        )values
+        <foreach collection="list" item="entity" index="index" separator=",">
+            (
+            #{entity.currency,jdbcType=VARCHAR}, #{entity.fundName,jdbcType=VARCHAR},
+            #{entity.transDate,jdbcType=VARCHAR}, #{entity.transPrice,jdbcType=DECIMAL}, #{entity.transNumber,jdbcType=DECIMAL},
+            #{entity.transAmount,jdbcType=DECIMAL}, #{entity.balance,jdbcType=DECIMAL}, #{entity.contractId,jdbcType=VARCHAR},
+            #{entity.transDesc,jdbcType=VARCHAR}, #{entity.transFee,jdbcType=DECIMAL}, #{entity.stampTax,jdbcType=DECIMAL},
+            #{entity.transferFee,jdbcType=DECIMAL}, #{entity.settleFee,jdbcType=DECIMAL}, #{entity.fundCode,jdbcType=VARCHAR},
+            #{entity.memberCode,jdbcType=VARCHAR}, #{entity.extension,jdbcType=VARCHAR}
+            )
+        </foreach>
+        ON DUPLICATE KEY
+        UPDATE create_datetime=VALUES(create_datetime)
+    </insert>
 
 </mapper>

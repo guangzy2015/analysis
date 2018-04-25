@@ -16,4 +16,5 @@ public class BatchController {
     public String getBatchStatus(@PathVariable("closingDate") String closingDate) {
         return  "SUCCESS";
     }
+
 }

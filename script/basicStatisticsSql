@@ -1,0 +1,6 @@
+#手续费，印花税，过户费总和
+select sum(trans_fee) transFee,sum(stamp_tax) tax,sum(transfer_fee) transferFee from fund_detail;
+#统计某只股票的总体情况
+select sum(trans_amount),sum(trans_fee) transFee,sum(stamp_tax) tax,sum(transfer_fee) transferFee from fund_detail where trans_desc like '%安信信托%';
+#查询指定时间范围内的情况
+select sum(trans_fee) transFee,sum(stamp_tax) tax,sum(transfer_fee) transferFee from fund_detail where trans_date between '20150101' and '20151231';

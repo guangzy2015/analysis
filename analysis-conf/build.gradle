@@ -1,4 +1,6 @@
 group 'com.feng.analysis'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+dependencies {
+    compile project(':analysis-common')
+}
